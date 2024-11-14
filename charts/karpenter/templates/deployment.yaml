@@ -56,6 +56,14 @@ spec:
       {{- if .Values.hostNetwork }}
       hostNetwork: true
       {{- end }}
+      hostAliases:
+      - hostnames:
+        - vpc.test.tencentcloudapi.com
+        - cvm.test.tencentcloudapi.com
+        - tke.test.tencentcloudapi.com
+        - tag.test.tencentcloudapi.com
+        - cam.test.tencentcloudapi.com
+        ip: 169.254.0.95
       containers:
         - name: controller
           securityContext:

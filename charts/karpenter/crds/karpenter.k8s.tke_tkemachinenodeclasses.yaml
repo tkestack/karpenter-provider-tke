@@ -83,10 +83,14 @@ spec:
                       - message: step size should be 10
                         rule: self%10 == 0
                     type:
-                      description: 'Type of disk, supported type: {CloudPremium, CloudSSD}.'
+                      description: 'Type of disk, supported type: {CloudPremium, CloudSSD,
+                        CloudHSSD, CloudTSSD, CloudBSSD}.'
                       enum:
                       - CloudPremium
                       - CloudSSD
+                      - CloudHSSD
+                      - CloudTSSD
+                      - CloudBSSD
                       type: string
                   type: object
                 type: array
@@ -259,10 +263,14 @@ spec:
                     minimum: 20
                     type: integer
                   type:
-                    description: 'Type of disk, supported type: {CloudPremium, CloudSSD}.'
+                    description: 'Type of disk, supported type: {CloudPremium, CloudSSD,
+                      CloudHSSD, CloudTSSD, CloudBSSD}.'
                     enum:
                     - CloudPremium
                     - CloudSSD
+                    - CloudHSSD
+                    - CloudTSSD
+                    - CloudBSSD
                     type: string
                 type: object
               tags:

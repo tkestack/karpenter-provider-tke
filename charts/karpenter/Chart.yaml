@@ -2,8 +2,8 @@ apiVersion: v2
 name: karpenter
 description: A Helm chart for TKE Karpenter provider.
 type: application
-version: 0.1.5
-appVersion: 0.1.5
+version: 0.1.6
+appVersion: 0.1.6
 keywords:
   - cluster
   - node
