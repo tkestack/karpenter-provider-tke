@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inflate
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: inflate
+  template:
+    metadata:
+      labels:
+        app: inflate
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - inflate
+            topologyKey: kubernetes.io/hostname
+      containers:
+      - name: inflate
+        image: ccr.ccs.tencentyun.com/library/pause:latest
+        resources:
+          requests:
+            cpu: 1m
+            memory: 1Mi
+      topologySpreadConstraints:
+      - labelSelector:
+          matchLabels:
+            app: inflate
+        maxSkew: 1
+        topologyKey: topology.kubernetes.io/zone
+        whenUnsatisfiable: DoNotSchedule
