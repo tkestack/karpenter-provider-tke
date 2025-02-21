@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inflate
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: inflate
+  template:
+    metadata:
+      labels:
+        app: inflate
+    spec:
+      nodeSelector:
+        createdBy: karpenter-provider-tke
+      containers:
+      - name: inflate
+        image: ccr.ccs.tencentyun.com/library/pause:latest
+        resources:
+          requests:
+            cpu: 1m
+            memory: 1Mi

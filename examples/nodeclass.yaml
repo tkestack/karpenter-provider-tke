@@ -1,0 +1,19 @@
+apiVersion: karpenter.k8s.tke/v1beta1
+kind: TKEMachineNodeClass
+metadata:
+  name: default
+  annotations:
+    kubernetes.io/description: "General purpose TKEMachineNodeClass"
+spec:
+  systemDisk:
+    size: 30
+    type: CloudSSD
+  subnetSelectorTerms:
+    - tags:
+        karpenter.sh/discovery: cls-rz4mz14s
+  securityGroupSelectorTerms:
+    - tags:
+        karpenter.sh/discovery: cls-rz4mz14s
+  sshKeySelectorTerms:
+    - tags:
+        karpenter.sh/discovery: cls-rz4mz14s
