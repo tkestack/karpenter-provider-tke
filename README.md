@@ -1,0 +1,1 @@
+# This repository is archived and moved to the new repository https://github.com/TencentCloud/karpenter-provider-tke 
